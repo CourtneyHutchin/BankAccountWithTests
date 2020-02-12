@@ -8,13 +8,17 @@ namespace BankAccountWithTests
 {
     public class BankAccount
     {
+        // Field
+        private string accountNumber;
+        // Constructor
+        public BankAccount(string accNum) : this(accNum, 0) { }
 
-        private string accountNumber;  // Field
-
-        public BankAccount(string accNum) // Constructor
+        public BankAccount(string accNum, double initialBal)
         {
             AccountNumber = accNum;
+            Balance = initialBal;
         }
+
         public string AccountNumber
         {
             get
@@ -50,6 +54,11 @@ namespace BankAccountWithTests
             }
             Balance += amt;
             return Balance;
+        }
+
+        public void Withdraw(double amt)
+        {
+            Balance -= amt;
         }
     }
 }
